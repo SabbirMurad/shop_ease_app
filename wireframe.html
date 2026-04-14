@@ -1,0 +1,1966 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>E-Commerce App — Customer Wireframe</title>
+<style>
+/* ─────────────────────────────────────────────
+   BASE
+───────────────────────────────────────────── */
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,'Helvetica Neue',Helvetica,Arial,sans-serif;
+  background:#e4e4e4;
+  color:#111;
+  padding:48px 44px 80px;
+}
+
+/* ─────────────────────────────────────────────
+   PAGE HEADER
+───────────────────────────────────────────── */
+.doc-title{font-size:30px;font-weight:800;letter-spacing:-0.6px;margin-bottom:6px}
+.doc-meta{font-size:13px;color:#777;margin-bottom:36px}
+
+/* ─────────────────────────────────────────────
+   LEGEND
+───────────────────────────────────────────── */
+.legend{
+  display:flex;flex-wrap:wrap;gap:12px 28px;
+  background:white;border:1.5px solid #d0d0d0;border-radius:12px;
+  padding:20px 24px;margin-bottom:52px;
+}
+.legend-heading{font-size:11px;font-weight:800;letter-spacing:1.2px;
+  text-transform:uppercase;color:#444;width:100%;margin-bottom:4px}
+.li{display:flex;align-items:center;gap:8px;font-size:11px;color:#555}
+.ls{width:22px;height:14px;border-radius:3px;flex-shrink:0}
+
+/* ─────────────────────────────────────────────
+   FLOW SECTION WRAPPER
+───────────────────────────────────────────── */
+.flow-section{margin-bottom:72px}
+.section-hdr{display:flex;align-items:flex-start;gap:14px;margin-bottom:26px}
+.section-tag{
+  background:#111;color:white;font-size:9px;font-weight:800;
+  letter-spacing:1.4px;text-transform:uppercase;padding:5px 11px;
+  border-radius:5px;white-space:nowrap;margin-top:3px
+}
+.section-info{}
+.section-name{font-size:19px;font-weight:700;color:#111}
+.section-note{font-size:11px;color:#888;margin-top:3px}
+
+.screens-row{display:flex;align-items:flex-start;flex-wrap:wrap;gap:0}
+
+/* ─────────────────────────────────────────────
+   SCREEN WRAP + LABEL
+───────────────────────────────────────────── */
+.sw{display:flex;flex-direction:column;align-items:center;gap:10px}
+.slabel{font-size:10px;font-weight:700;color:#333;text-align:center;letter-spacing:0.2px}
+.ssub{font-size:9px;color:#aaa;text-align:center;margin-top:-6px}
+.snav{font-size:9px;color:#888;text-align:center;margin-top:-4px}
+.snav span{
+  display:inline-block;background:#f0f0f0;border:1px solid #ddd;
+  border-radius:10px;padding:1px 7px;font-size:8px;color:#666;margin:1px
+}
+
+/* ─────────────────────────────────────────────
+   FLOW ARROW
+───────────────────────────────────────────── */
+.farrow{
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:0 10px;align-self:center;margin-top:-40px;
+  color:#aaa;font-size:22px;font-weight:200;line-height:1
+}
+.farrow small{font-size:8px;color:#bbb;margin-top:2px;white-space:nowrap}
+
+/* ─────────────────────────────────────────────
+   PHONE FRAME
+───────────────────────────────────────────── */
+.phone{
+  width:216px;
+  background:white;
+  border-radius:34px;
+  border:2.5px solid #1a1a1a;
+  overflow:hidden;
+  box-shadow:0 6px 28px rgba(0,0,0,0.13);
+  position:relative;
+}
+.notch{
+  width:72px;height:18px;
+  background:#1a1a1a;border-radius:0 0 12px 12px;
+  margin:0 auto;position:relative;z-index:10;
+}
+.screen{
+  background:white;
+  min-height:430px;
+  position:relative;
+  overflow:hidden;
+}
+.home-indicator{
+  height:22px;display:flex;align-items:center;justify-content:center;
+  background:white;
+}
+.hi-bar{width:52px;height:4px;background:#1a1a1a;border-radius:2px}
+
+/* ─────────────────────────────────────────────
+   WIREFRAME ATOMS
+───────────────────────────────────────────── */
+
+/* Status bar */
+.sb{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:5px 14px 3px;background:white;
+}
+.sb-time{font-size:8.5px;font-weight:800;color:#111}
+.sb-icons{display:flex;gap:3px;align-items:center}
+.sb-icons i{font-size:6.5px;color:#111;font-style:normal;font-weight:700}
+
+/* App bars */
+.appbar{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:7px 12px;border-bottom:1px solid #ebebeb;background:white;
+  min-height:34px;
+}
+.appbar-title{font-size:12px;font-weight:800;color:#111;flex:1;text-align:center}
+.back{font-size:9px;color:#555;display:flex;align-items:center;gap:2px;min-width:24px}
+.icon-btn{
+  width:24px;height:24px;border:1.5px solid #ddd;border-radius:7px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:9px;color:#555;flex-shrink:0
+}
+.icon-row{display:flex;gap:5px}
+
+/* Bottom tab bar */
+.tabbar{
+  display:flex;justify-content:space-around;align-items:center;
+  padding:7px 0 6px;border-top:1.5px solid #ebebeb;background:white;
+}
+.tab{display:flex;flex-direction:column;align-items:center;gap:2px}
+.tab-ic{width:18px;height:18px;border-radius:4px;background:#e0e0e0}
+.tab-ic.on{background:#111}
+.tab-lbl{font-size:6.5px;color:#aaa}
+.tab-lbl.on{color:#111;font-weight:700}
+
+/* Image placeholders */
+.imgbox{
+  background:#e8e8e8;display:flex;align-items:center;justify-content:center;
+  position:relative;overflow:hidden;
+}
+.imgbox::before,.imgbox::after{
+  content:'';position:absolute;background:#d0d0d0;
+  width:150%;height:1.5px;left:-25%;top:50%;transform-origin:center;
+}
+.imgbox::before{transform:rotate(22deg)}
+.imgbox::after{transform:rotate(-22deg)}
+.imgbox-lbl{
+  font-size:8px;color:#aaa;z-index:1;position:relative;
+  background:rgba(232,232,232,0.92);padding:2px 6px;border-radius:3px;
+}
+
+/* Text line stubs */
+.tl{height:7px;background:#ddd;border-radius:3px;margin-bottom:5px}
+.tl.lg{height:10px;background:#bbb}
+.tl.sm{height:5px}
+.tl.xl{height:13px;background:#aaa}
+.tl.w100{width:100%}.tl.w90{width:90%}.tl.w80{width:80%}
+.tl.w70{width:70%}.tl.w60{width:60%}.tl.w50{width:50%}
+.tl.w40{width:40%}.tl.w30{width:30%}.tl.w55{width:55%}
+
+/* Buttons */
+.btn{
+  display:block;width:100%;padding:9px 0;
+  background:#111;color:white;border:2px solid #111;border-radius:8px;
+  font-size:10px;font-weight:800;text-align:center;letter-spacing:0.4px;
+}
+.btn.outline{background:white;color:#111}
+.btn.ghost{background:white;color:#888;border-color:#ddd}
+.btn.sm{padding:6px 0;font-size:8.5px;border-radius:6px}
+.btn.danger{background:white;color:#555;border-color:#bbb}
+
+/* Inputs */
+.inp{
+  width:100%;height:30px;border:1.5px solid #ccc;border-radius:7px;
+  padding:0 8px;display:flex;align-items:center;gap:6px;margin-bottom:7px;
+}
+.inp.focus{border-color:#111}
+.inp-ph{font-size:8px;color:#bbb;flex:1}
+.inp-lbl{font-size:8px;color:#777;margin-bottom:3px}
+.inp-ic{width:9px;height:9px;background:#ddd;border-radius:2px;flex-shrink:0}
+
+/* Search bar */
+.searchbar{
+  display:flex;align-items:center;gap:7px;
+  background:#f2f2f2;border-radius:10px;padding:7px 10px;
+  margin:0 10px;
+}
+.searchbar-ph{font-size:8.5px;color:#bbb;flex:1}
+.search-ic{font-size:10px;color:#aaa;font-style:normal}
+
+/* Chips / tags */
+.chip{
+  display:inline-flex;align-items:center;
+  padding:3px 9px;border:1.5px solid #111;border-radius:14px;
+  font-size:7.5px;font-weight:700;color:#111;white-space:nowrap;flex-shrink:0;
+}
+.chip.off{border-color:#ddd;color:#888;font-weight:400}
+.chip.sm{padding:2px 7px;font-size:7px}
+
+/* Cards */
+.card{
+  border:1.5px solid #e4e4e4;border-radius:9px;
+  overflow:hidden;background:white;
+}
+
+/* Product cards */
+.pgrid{display:flex;flex-wrap:wrap;gap:7px;padding:0 10px}
+.pcard{width:calc(50% - 3.5px);border:1.5px solid #e4e4e4;border-radius:8px;overflow:hidden}
+
+/* Section headers */
+.sec-hdr{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:6px 10px 4px;
+}
+.sec-hdr-t{font-size:10.5px;font-weight:800;color:#111}
+.sec-hdr-a{font-size:8.5px;color:#999}
+
+/* Dividers */
+.div{height:1px;background:#f0f0f0;margin:6px 0}
+.div-txt{
+  display:flex;align-items:center;gap:7px;margin:7px 0;
+}
+.div-txt::before,.div-txt::after{content:'';flex:1;height:1px;background:#e8e8e8}
+.div-txt span{font-size:8px;color:#bbb}
+
+/* Badges */
+.badge{
+  display:inline-block;padding:2px 7px;border-radius:9px;
+  font-size:7px;font-weight:800;background:#111;color:white;
+}
+.badge.grey{background:#888}
+.badge.light{background:#e8e8e8;color:#555}
+.badge.outline{background:transparent;border:1px solid #aaa;color:#666}
+
+/* Stars */
+.stars{display:flex;gap:1.5px;align-items:center}
+.star{
+  width:7px;height:7px;background:#555;
+  clip-path:polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%);
+}
+.star.e{background:#ddd}
+
+/* Stepper */
+.steps{display:flex;align-items:center;justify-content:center;padding:8px;gap:4px}
+.step-n{
+  width:22px;height:22px;border-radius:50%;
+  border:2px solid #ddd;display:flex;align-items:center;
+  justify-content:center;font-size:7.5px;color:#bbb;font-weight:800;
+}
+.step-n.done{background:#555;border-color:#555;color:white}
+.step-n.active{background:#111;border-color:#111;color:white}
+.step-ln{flex:1;height:2px;background:#e0e0e0;max-width:28px}
+.step-ln.done{background:#555}
+
+/* Timeline */
+.tl-wrap{padding:0 12px}
+.tl-item{display:flex;gap:9px;padding-bottom:12px;position:relative}
+.tl-dot{
+  width:11px;height:11px;border-radius:50%;background:#111;
+  flex-shrink:0;margin-top:2px;position:relative;z-index:1;
+}
+.tl-dot.off{background:#e0e0e0}
+.tl-item:not(:last-child) .tl-dot::after{
+  content:'';position:absolute;left:50%;top:100%;
+  transform:translateX(-50%);width:2px;height:999px;background:#e8e8e8;z-index:0;
+}
+.tl-content{}
+.tl-t{font-size:9px;font-weight:700;color:#111}
+.tl-t.off{color:#bbb}
+.tl-d{font-size:7.5px;color:#aaa;margin-top:1px}
+
+/* List rows */
+.lrow{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:9px 12px;border-bottom:1px solid #f2f2f2;
+}
+.lrow-l{display:flex;align-items:center;gap:9px}
+.lrow-ic{width:20px;height:20px;background:#eee;border-radius:5px;flex-shrink:0}
+.lrow-ch{font-size:10px;color:#ccc}
+
+/* Avatar */
+.avatar{
+  width:38px;height:38px;border-radius:50%;
+  background:#ddd;border:2px solid #ccc;flex-shrink:0;
+}
+
+/* Qty stepper */
+.qty{display:flex;align-items:center;gap:6px}
+.qty-b{
+  width:18px;height:18px;border:1.5px solid #bbb;border-radius:4px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:11px;color:#666;
+}
+.qty-v{font-size:9px;font-weight:800;color:#111}
+
+/* Radio / checkbox */
+.radio{width:11px;height:11px;border-radius:50%;border:1.5px solid #bbb;flex-shrink:0}
+.radio.on{border-color:#111;background:radial-gradient(circle,#111 38%,white 38%)}
+.chk{width:11px;height:11px;border-radius:3px;border:1.5px solid #bbb;flex-shrink:0}
+.chk.on{background:#111;border-color:#111}
+
+/* Carousel dots */
+.cdots{display:flex;gap:4px;justify-content:center;padding:5px 0}
+.cdot{width:5px;height:5px;border-radius:50%;background:#ddd}
+.cdot.on{background:#111;width:13px;border-radius:3px}
+
+/* Notif dot */
+.notif-dot{
+  width:7px;height:7px;border-radius:50%;background:#555;
+  position:absolute;top:-2px;right:-2px;
+}
+
+/* Horizontal scroll hint */
+.hscroll{display:flex;gap:7px;padding:6px 10px;overflow:hidden}
+
+/* Misc layout */
+.px10{padding-left:10px;padding-right:10px}
+.px12{padding-left:12px;padding-right:12px}
+.py6{padding-top:6px;padding-bottom:6px}
+.py8{padding-top:8px;padding-bottom:8px}
+.py4{padding-top:4px;padding-bottom:4px}
+.mb4{margin-bottom:4px}
+.mb6{margin-bottom:6px}
+.mb8{margin-bottom:8px}
+.mb10{margin-bottom:10px}
+.flex{display:flex}
+.flex-between{display:flex;justify-content:space-between;align-items:center}
+.flex-center{display:flex;align-items:center;justify-content:center}
+.flex-col{display:flex;flex-direction:column}
+.gap4{gap:4px}
+.gap6{gap:6px}
+.gap8{gap:8px}
+.flex1{flex:1}
+
+/* Swatch row */
+.swatches{display:flex;gap:5px}
+.swatch{width:14px;height:14px;border-radius:50%;border:1.5px solid #ccc;background:#ddd}
+.swatch.sel{border:2px solid #111}
+.swatch.d{background:#555}
+.swatch.dd{background:#888}
+
+/* Notification items */
+.notif-item{
+  display:flex;gap:9px;padding:9px 12px;border-bottom:1px solid #f2f2f2;
+  align-items:flex-start;
+}
+.notif-ic{width:30px;height:30px;border-radius:8px;background:#e8e8e8;flex-shrink:0}
+.notif-unread{background:#e0e0e0}
+
+/* Order card */
+.ocard{
+  border:1.5px solid #e4e4e4;border-radius:9px;
+  padding:10px;margin:0 10px 8px;background:white;
+}
+
+/* Sticky bottom bar */
+.sticky-bottom{
+  position:absolute;bottom:0;left:0;right:0;
+  background:white;border-top:1.5px solid #ebebeb;
+  padding:8px 12px;
+}
+
+/* Success screen */
+.success-icon{
+  width:56px;height:56px;border-radius:50%;
+  border:3px solid #555;display:flex;align-items:center;justify-content:center;
+  font-size:22px;color:#555;font-weight:800;margin:0 auto 10px;
+}
+
+/* Coupon row */
+.coupon{
+  display:flex;align-items:center;gap:8px;
+  border:1.5px dashed #ccc;border-radius:7px;padding:7px 10px;
+}
+.coupon-ic{width:16px;height:16px;background:#ddd;border-radius:4px;flex-shrink:0}
+
+/* Empty state */
+.empty{
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:40px 20px;gap:10px;
+}
+.empty-ic{width:48px;height:48px;background:#eee;border-radius:12px}
+.empty-t{font-size:10px;font-weight:700;color:#888;text-align:center}
+.empty-s{font-size:8.5px;color:#bbb;text-align:center}
+
+/* Banner carousel */
+.banner{
+  margin:6px 10px;border-radius:10px;overflow:hidden;
+  border:1.5px solid #e0e0e0;
+}
+
+/* Filter bar */
+.filter-bar{
+  display:flex;align-items:center;gap:6px;padding:5px 10px;
+  border-bottom:1px solid #ebebeb;
+}
+.filter-btn{
+  display:flex;align-items:center;gap:3px;
+  padding:4px 9px;border:1.5px solid #ddd;border-radius:6px;
+  font-size:7.5px;color:#555;font-weight:600;
+}
+.filter-ic{width:8px;height:8px;background:#bbb;border-radius:2px}
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════
+     PAGE HEADER
+══════════════════════════════════════════ -->
+<div class="doc-title">E-Commerce App — Customer Wireframe</div>
+<div class="doc-meta">Single vendor · Customer-facing · 19 screens · Black &amp; white wireframe · User flow</div>
+
+<!-- ══════════════════════════════════════════
+     LEGEND
+══════════════════════════════════════════ -->
+<div class="legend">
+  <div class="legend-heading">Legend</div>
+  <div class="li"><div class="ls" style="background:#e8e8e8;border:1px solid #ccc"></div>Image / media placeholder</div>
+  <div class="li"><div class="ls" style="background:#ddd"></div>Text / content placeholder</div>
+  <div class="li"><div class="ls" style="background:#111"></div>Primary action / active state</div>
+  <div class="li"><div class="ls" style="background:white;border:2px solid #111"></div>Secondary / outline element</div>
+  <div class="li"><div class="ls" style="background:#f2f2f2;border:1px solid #ddd"></div>Input / surface</div>
+  <div class="li"><div class="ls" style="background:white;border:2.5px solid #1a1a1a;border-radius:6px"></div>Phone frame</div>
+  <div class="li"><span style="font-size:18px;color:#aaa;line-height:1">→</span>User navigation flow</div>
+  <div class="li"><span style="font-size:8px;background:#111;color:white;padding:2px 6px;border-radius:3px">FLOW 1</span>Section / flow group</div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     FLOW 1 · AUTH FLOW
+══════════════════════════════════════════ -->
+<div class="flow-section">
+  <div class="section-hdr">
+    <div class="section-tag">Flow 1</div>
+    <div class="section-info">
+      <div class="section-name">Auth Flow</div>
+      <div class="section-note">Splash → Onboarding → Login / Register → Home</div>
+    </div>
+  </div>
+
+  <div class="screens-row">
+
+    <!-- ── S1: Splash ── -->
+    <div class="sw">
+      <div class="phone">
+        <div class="notch"></div>
+        <div class="screen" style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;min-height:430px">
+          <div style="width:64px;height:64px;border:3px solid #111;border-radius:18px;display:flex;align-items:center;justify-content:center">
+            <div style="width:32px;height:32px;background:#111;border-radius:8px"></div>
+          </div>
+          <div style="font-size:16px;font-weight:800;color:#111;letter-spacing:-0.3px">ShopEase</div>
+          <div style="font-size:9px;color:#aaa">Your store, your style</div>
+          <div style="margin-top:20px;display:flex;gap:5px">
+            <div style="width:6px;height:6px;border-radius:50%;background:#111"></div>
+            <div style="width:6px;height:6px;border-radius:50%;background:#ddd"></div>
+            <div style="width:6px;height:6px;border-radius:50%;background:#ddd"></div>
+          </div>
+          <div style="font-size:8px;color:#ccc">Loading…</div>
+        </div>
+        <div class="home-indicator"><div class="hi-bar"></div></div>
+      </div>
+      <div class="slabel">S1 · Splash</div>
+      <div class="snav"><span>auto → Onboarding</span></div>
+    </div>
+
+    <div class="farrow">→<small>2s delay</small></div>
+
+    <!-- ── S2: Onboarding 1 ── -->
+    <div class="sw">
+      <div class="phone">
+        <div class="notch"></div>
+        <div class="screen" style="min-height:430px">
+          <div style="display:flex;justify-content:flex-end;padding:10px 12px">
+            <span style="font-size:9px;color:#aaa">Skip</span>
+          </div>
+          <div class="imgbox" style="height:200px;margin:0 20px;border-radius:12px">
+            <span class="imgbox-lbl">Illustration 1</span>
+          </div>
+          <div style="padding:20px 20px 0;text-align:center">
+            <div style="font-size:15px;font-weight:800;color:#111;margin-bottom:8px">Discover Products</div>
+            <div class="tl w90" style="margin:0 auto 4px"></div>
+            <div class="tl w80" style="margin:0 auto 4px"></div>
+            <div class="tl w60" style="margin:0 auto"></div>
+          </div>
+          <div class="cdots" style="margin-top:16px">
+            <div class="cdot on"></div>
+            <div class="cdot"></div>
+            <div class="cdot"></div>
+          </div>
+          <div style="padding:14px 20px 0">
+            <div class="btn">Next</div>
+          </div>
+        </div>
+        <div class="home-indicator"><div class="hi-bar"></div></div>
+      </div>
+      <div class="slabel">S2 · Onboarding 1</div>
+      <div class="snav"><span>Next → S3</span><span>Skip → Login</span></div>
+    </div>
+
+    <div class="farrow">→</div>
+
+    <!-- ── S3: Onboarding 2 ── -->
+    <div class="sw">
+      <div class="phone">
+        <div class="notch"></div>
+        <div class="screen" style="min-height:430px">
+          <div style="display:flex;justify-content:flex-end;padding:10px 12px">
+            <span style="font-size:9px;color:#aaa">Skip</span>
+          </div>
+          <div class="imgbox" style="height:200px;margin:0 20px;border-radius:12px">
+            <span class="imgbox-lbl">Illustration 2</span>
+          </div>
+          <div style="padding:20px 20px 0;text-align:center">
+            <div style="font-size:15px;font-weight:800;color:#111;margin-bottom:8px">Easy Checkout</div>
+            <div class="tl w90" style="margin:0 auto 4px"></div>
+            <div class="tl w70" style="margin:0 auto 4px"></div>
+            <div class="tl w50" style="margin:0 auto"></div>
+          </div>
+          <div class="cdots" style="margin-top:16px">
+            <div class="cdot"></div>
+            <div class="cdot on"></div>
+            <div class="cdot"></div>
+          </div>
+          <div style="padding:14px 20px 0">
+            <div class="btn">Next</div>
+          </div>
+        </div>
+        <div class="home-indicator"><div class="hi-bar"></div></div>
+      </div>
+      <div class="slabel">S3 · Onboarding 2</div>
+      <div class="snav"><span>Next → S4</span></div>
+    </div>
+
+    <div class="farrow">→</div>
+
+    <!-- ── S4: Onboarding 3 ── -->
+    <div class="sw">
+      <div class="phone">
+        <div class="notch"></div>
+        <div class="screen" style="min-height:430px">
+          <div style="display:flex;justify-content:flex-end;padding:10px 12px">
+            <span style="font-size:9px;color:#aaa">Skip</span>
+          </div>
+          <div class="imgbox" style="height:200px;margin:0 20px;border-radius:12px">
+            <span class="imgbox-lbl">Illustration 3</span>
+          </div>
+          <div style="padding:20px 20px 0;text-align:center">
+            <div style="font-size:15px;font-weight:800;color:#111;margin-bottom:8px">Track Orders</div>
+            <div class="tl w90" style="margin:0 auto 4px"></div>
+            <div class="tl w80" style="margin:0 auto 4px"></div>
+            <div class="tl w55" style="margin:0 auto"></div>
+          </div>
+          <div class="cdots" style="margin-top:16px">
+            <div class="cdot"></div>
+            <div class="cdot"></div>
+            <div class="cdot on"></div>
+          </div>
+          <div style="padding:14px 20px 0">
+            <div class="btn" style="margin-bottom:8px">Get Started</div>
+            <div class="btn outline">Log In</div>
+          </div>
+        </div>
+        <div class="home-indicator"><div class="hi-bar"></div></div>
+      </div>
+      <div class="slabel">S4 · Onboarding 3</div>
+      <div class="snav"><span>Get Started → Register</span><span>Log In → Login</span></div>
+    </div>
+
+    <div class="farrow">→</div>
+
+    <!-- ── S5: Login ── -->
+    <div class="sw">
+      <div class="phone">
+        <div class="notch"></div>
+        <div class="screen" style="min-height:430px;padding:16px 16px 16px">
+          <div style="font-size:17px;font-weight:800;color:#111;margin-bottom:3px">Welcome back</div>
+          <div style="font-size:9px;color:#aaa;margin-bottom:18px">Sign in to continue</div>
+
+          <div class="inp-lbl">Email address</div>
+          <div class="inp focus"><div class="inp-ic"></div><div class="inp-ph">hello@email.com</div></div>
+          <div class="inp-lbl">Password</div>
+          <div class="inp"><div class="inp-ic"></div><div class="inp-ph">••••••••</div><div style="font-size:7px;color:#888">Show</div></div>
+
+          <div style="display:flex;justify-content:flex-end;margin-bottom:14px">
+            <span style="font-size:8.5px;color:#555">Forgot password?</span>
+          </div>
+          <div class="btn mb6">Sign In</div>
+
+          <div class="div-txt mb6"><span>or continue with</span></div>
+
+          <div style="display:flex;gap:8px;margin-bottom:14px">
+            <div class="btn outline" style="flex:1;font-size:9px">G  Google</div>
+            <div class="btn outline" style="flex:1;font-size:9px">&#63743;  Apple</div>
+          </div>
+
+          <div style="text-align:center;font-size:8.5px;color:#888">
+            Don't have an account? <span style="color:#111;font-weight:700">Sign Up</span>
+          </div>
+        </div>
+        <div class="home-indicator"><div class="hi-bar"></div></div>
+      </div>
+      <div class="slabel">S5 · Login</div>
+      <div class="snav"><span>Sign In → Home</span><span>Sign Up → Register</span></div>
+    </div>
+
+    <div class="farrow" style="align-self:center;margin-top:-200px">
+      <div style="font-size:10px;color:#aaa;writing-mode:vertical-rl;transform:rotate(180deg);letter-spacing:1px">OR NEW USER</div>
+    </div>
+
+    <!-- ── S6: Register ── -->
+    <div class="sw">
+      <div class="phone">
+        <div class="notch"></div>
+        <div class="screen" style="min-height:430px;padding:12px 16px 16px">
+          <div class="appbar" style="padding:0 0 10px;border:none">
+            <div class="back">← Back</div>
+            <div class="appbar-title" style="text-align:left;padding-left:4px">Create Account</div>
+            <div style="width:32px"></div>
+          </div>
+
+          <div class="inp-lbl">Full name</div>
+          <div class="inp"><div class="inp-ic"></div><div class="inp-ph">Your full name</div></div>
+          <div class="inp-lbl">Email address</div>
+          <div class="inp"><div class="inp-ic"></div><div class="inp-ph">your@email.com</div></div>
+          <div class="inp-lbl">Password</div>
+          <div class="inp"><div class="inp-ic"></div><div class="inp-ph">Create password</div></div>
+          <div class="inp-lbl">Confirm password</div>
+          <div class="inp"><div class="inp-ic"></div><div class="inp-ph">Repeat password</div></div>
+
+          <div style="display:flex;align-items:flex-start;gap:7px;margin-bottom:14px">
+            <div class="chk on" style="margin-top:1px"></div>
+            <div style="font-size:7.5px;color:#888;line-height:1.5">I agree to the <span style="color:#111;font-weight:700">Terms of Service</span> and <span style="color:#111;font-weight:700">Privacy Policy</span></div>
+          </div>
+
+          <div class="btn mb6">Create Account</div>
+          <div style="text-align:center;font-size:8.5px;color:#888">
+            Already have account? <span style="color:#111;font-weight:700">Sign In</span>
+          </div>
+        </div>
+        <div class="home-indicator"><div class="hi-bar"></div></div>
+      </div>
+      <div class="slabel">S6 · Register</div>
+      <div class="snav"><span>Create Account → Home</span></div>
+    </div>
+
+  </div><!-- end screens-row -->
+</div><!-- end flow-section -->
+
+<!-- ══════════════════════════════════════════
+     FLOW 2 · SHOPPING FLOW
+══════════════════════════════════════════ -->
+<div class="flow-section">
+  <div class="section-hdr">
+    <div class="section-tag">Flow 2</div>
+    <div class="section-info">
+      <div class="section-name">Shopping Flow</div>
+      <div class="section-note">Home → Browse / Search → Product Detail → Wishlist</div>
+    </div>
+  </div>
+
+  <div class="screens-row">
+
+    <!-- ── S7: Home ── -->
+    <div class="sw">
+      <div class="phone">
+        <div class="notch"></div>
+        <div class="screen" style="min-height:430px">
+          <div class="sb"><div class="sb-time">9:41</div><div class="sb-icons"><i>●●●</i><i>WiFi</i><i>100%</i></div></div>
+
+          <!-- Top bar -->
+          <div style="display:flex;align-items:center;justify-content:space-between;padding:4px 10px 6px">
+            <div>
+              <div style="font-size:8px;color:#aaa">Deliver to</div>
+              <div style="font-size:10px;font-weight:800;color:#111">Home ▾</div>
+            </div>
+            <div style="display:flex;gap:6px">
+              <div class="icon-btn" style="position:relative">
+                🔔
+                <div class="notif-dot"></div>
+              </div>
+              <div class="icon-btn" style="position:relative">
+                🛒
+                <div style="position:absolute;top:-3px;right:-3px;width:13px;height:13px;background:#111;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:6px;color:white;font-weight:800">3</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Search -->
+          <div class="searchbar mb6"><i class="search-ic">🔍</i><div class="searchbar-ph">Search products…</div></div>
+
+          <!-- Banner -->
+          <div class="banner">
+            <div class="imgbox" style="height:90px"><span class="imgbox-lbl">Promo Banner</span></div>
+          </div>
+          <div class="cdots"><div class="cdot on"></div><div class="cdot"></div><div class="cdot"></div></div>
+
+          <!-- Categories -->
+          <div class="sec-hdr"><div class="sec-hdr-t">Categories</div><div class="sec-hdr-a">See all →</div></div>
+          <div class="hscroll">
+            <div style="display:flex;flex-direction:column;align-items:center;gap:3px;flex-shrink:0">
+              <div style="width:38px;height:38px;background:#111;border-radius:10px"></div>
+              <div style="font-size:6.5px;color:#111;font-weight:600">All</div>
+            </div>
+            <div style="display:flex;flex-direction:column;align-items:center;gap:3px;flex-shrink:0">
+              <div style="width:38px;height:38px;background:#e8e8e8;border-radius:10px"></div>
+              <div style="font-size:6.5px;color:#666">Tops</div>
+            </div>
+            <div style="display:flex;flex-direction:column;align-items:center;gap:3px;flex-shrink:0">
+              <div style="width:38px;height:38px;background:#e8e8e8;border-radius:10px"></div>
+              <div style="font-size:6.5px;color:#666">Bottoms</div>
+            </div>
+            <div style="display:flex;flex-direction:column;align-items:center;gap:3px;flex-shrink:0">
+              <div style="width:38px;height:38px;background:#e8e8e8;border-radius:10px"></div>
+              <div style="font-size:6.5px;color:#666">Shoes</div>
+            </div>
+            <div style="display:flex;flex-direction:column;align-items:center;gap:3px;flex-shrink:0">
+              <div style="width:38px;height:38px;background:#e8e8e8;border-radius:10px"></div>
+              <div style="font-size:6.5px;color:#666">Bags</div>
+            </div>
+          </div>
+
+          <!-- Featured -->
+          <div class="sec-hdr" style="margin-top:4px"><div class="sec-hdr-t">Featured Products</div><div class="sec-hdr-a">See all →</div></div>
+          <div class="pgrid" style="padding-bottom:54px">
+            <div class="pcard">
+              <div class="imgbox" style="height:74px"></div>
+              <div style="padding:5px 6px">
+                <div class="tl w90 sm mb4"></div>
+                <div class="tl w60 sm mb4"></div>
+                <div style="display:flex;justify-content:space-between;align-items:center">
+                  <div style="font-size:9px;font-weight:800;color:#111">$49.00</div>
+                  <div class="stars"><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star e"></div></div>
+                </div>
+              </div>
+            </div>
+            <div class="pcard">
+              <div class="imgbox" style="height:74px"></div>
+              <div style="padding:5px 6px">
+                <div class="tl w90 sm mb4"></div>
+                <div class="tl w50 sm mb4"></div>
+                <div style="display:flex;justify-content:space-between;align-items:center">
+                  <div style="font-size:9px;font-weight:800;color:#111">$29.00</div>
+                  <div class="stars"><div class="star"></div><div class="star"></div><div class="star"></div><div class="star e"></div><div class="star e"></div></div>
+                </div>
+              </div>
+            </div>
+            <div class="pcard">
+              <div class="imgbox" style="height:74px"></div>
+              <div style="padding:5px 6px">
+                <div class="tl w90 sm mb4"></div>
+                <div class="tl w70 sm mb4"></div>
+                <div style="display:flex;justify-content:space-between;align-items:center">
+                  <div style="font-size:9px;font-weight:800;color:#111">$79.00</div>
+                  <div class="stars"><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div></div>
+                </div>
+              </div>
+            </div>
+            <div class="pcard">
+              <div class="imgbox" style="height:74px"></div>
+              <div style="padding:5px 6px">
+                <div class="tl w80 sm mb4"></div>
+                <div class="tl w55 sm mb4"></div>
+                <div style="display:flex;justify-content:space-between;align-items:center">
+                  <div style="font-size:9px;font-weight:800;color:#111">$34.00</div>
+                  <div class="stars"><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star e"></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tab bar -->
+          <div class="tabbar" style="position:absolute;bottom:0;left:0;right:0">
+            <div class="tab"><div class="tab-ic on"></div><div class="tab-lbl on">Home</div></div>
+            <div class="tab"><div class="tab-ic"></div><div class="tab-lbl">Browse</div></div>
+            <div class="tab"><div class="tab-ic"></div><div class="tab-lbl">Cart</div></div>
+            <div class="tab"><div class="tab-ic"></div><div class="tab-lbl">Wishlist</div></div>
+            <div class="tab"><div class="tab-ic"></div><div class="tab-lbl">Profile</div></div>
+          </div>
+        </div>
+        <div class="home-indicator"><div class="hi-bar"></div></div>
+      </div>
+      <div class="slabel">S7 · Home</div>
+      <div class="snav"><span>Search → S9</span><span>Category → S8</span><span>Product → S10</span><span>Cart icon → S12</span></div>
+    </div>
+
+    <div class="farrow">→</div>
+
+    <!-- ── S8: Category / Product Listing ── -->
+    <div class="sw">
+      <div class="phone">
+        <div class="notch"></div>
+        <div class="screen" style="min-height:430px">
+          <div class="sb"><div class="sb-time">9:41</div><div class="sb-icons"><i>●●●</i><i>100%</i></div></div>
+          <div class="appbar">
+            <div class="back">← </div>
+            <div class="appbar-title">Tops</div>
+            <div class="icon-row">
+              <div class="icon-btn">⊞</div>
+            </div>
+          </div>
+
+          <!-- Filter bar -->
+          <div class="filter-bar">
+            <div class="filter-btn"><div class="filter-ic"></div>Filter</div>
+            <div class="filter-btn"><div class="filter-ic"></div>Sort</div>
+            <div style="flex:1"></div>
+            <div style="font-size:7.5px;color:#aaa">128 items</div>
+          </div>
+
+          <!-- Active filters -->
+          <div style="display:flex;gap:5px;padding:5px 10px;overflow:hidden">
+            <div class="chip sm">Size: M ×</div>
+            <div class="chip sm off">Under $50</div>
+          </div>
+
+          <!-- Product grid -->
+          <div class="pgrid" style="padding-bottom:54px">
+            <div class="pcard">
+              <div style="position:relative">
+                <div class="imgbox" style="height:88px"></div>
+                <div style="position:absolute;top:5px;right:5px;font-size:12px;color:#555">♡</div>
+              </div>
+              <div style="padding:5px 6px">
+                <div class="tl w90 sm mb4"></div>
+                <div class="tl w60 sm mb4"></div>
+                <div class="tl w40 sm"></div>
+              </div>
+            </div>
+            <div class="pcard">
+              <div style="position:relative">
+                <div class="imgbox" style="height:88px"></div>
+                <div style="position:absolute;top:5px;left:5px"><div class="badge" style="font-size:6px">SALE</div></div>
+                <div style="position:absolute;top:5px;right:5px;font-size:12px;color:#555">♡</div>
+              </div>
+              <div style="padding:5px 6px">
+                <div class="tl w90 sm mb4"></div>
+                <div class="tl w70 sm mb4"></div>
+                <div class="flex gap4"><div class="tl w40 sm" style="text-decoration:line-through;margin-bottom:0"></div><div class="tl w30 sm" style="background:#999;margin-bottom:0"></div></div>
+              </div>
+            </div>
+            <div class="pcard">
+              <div style="position:relative">
+                <div class="imgbox" style="height:88px"></div>
+                <div style="position:absolute;top:5px;right:5px;font-size:12px;color:#555">♡</div>
+              </div>
+              <div style="padding:5px 6px">
+                <div class="tl w90 sm mb4"></div>
+                <div class="tl w55 sm mb4"></div>
+                <div class="tl w40 sm"></div>
+              </div>
+            </div>
+            <div class="pcard">
+              <div style="position:relative">
+                <div class="imgbox" style="height:88px"></div>
+                <div style="position:absolute;top:5px;right:5px;font-size:12px;color:#555">♥</div>
+              </div>
+              <div style="padding:5px 6px">
+                <div class="tl w80 sm mb4"></div>
+                <div class="tl w60 sm mb4"></div>
+                <div class="tl w40 sm"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="tabbar" style="position:absolute;bottom:0;left:0;right:0">
+            <div class="tab"><div class="tab-ic"></div><div class="tab-lbl">Home</div></div>
+            <div class="tab"><div class="tab-ic on"></div><div class="tab-lbl on">Browse</div></div>
+            <div class="tab"><div class="tab-ic"></div><div class="tab-lbl">Cart</div></div>
+            <div class="tab"><div class="tab-ic"></div><div class="tab-lbl">Wishlist</div></div>
+            <div class="tab"><div class="tab-ic"></div><div class="tab-lbl">Profile</div></div>
+          </div>
+        </div>
+        <div class="home-indicator"><div class="hi-bar"></div></div>
+      </div>
+      <div class="slabel">S8 · Category Listing</div>
+      <div class="snav"><span>Product card → S10</span><span>♡ → S11 Wishlist</span></div>
+    </div>
+
+    <div class="farrow">→</div>
+
+    <!-- ── S9: Search Results ── -->
+    <div class="sw">
+      <div class="phone">
+        <div class="notch"></div>
+        <div class="screen" style="min-height:430px">
+          <div class="sb"><div class="sb-time">9:41</div><div class="sb-icons"><i>●●●</i><i>100%</i></div></div>
+
+          <!-- Active search bar -->
+          <div style="display:flex;align-items:center;gap:8px;padding:7px 10px;border-bottom:1px solid #ebebeb">
+            <div style="font-size:9px;color:#555">←</div>
+            <div style="flex:1;height:30px;border:1.5px solid #111;border-radius:8px;display:flex;align-items:center;padding:0 9px;gap:6px">
+              <span style="font-size:9px;color:#aaa">🔍</span>
+              <span style="font-size:9px;color:#111;font-weight:600">white t-shirt</span>
+              <span style="font-size:10px;color:#bbb;margin-left:auto">✕</span>
+            </div>
+          </div>
+
+          <!-- Filter bar -->
+          <div class="filter-bar">
+            <div class="filter-btn">Filter</div>
+            <div class="filter-btn">Sort: Relevance ▾</div>
+            <div style="flex:1"></div>
+            <div style="font-size:7.5px;color:#aaa">34 results</div>
+          </div>
+
+          <!-- Results list -->
+          <div style="padding:6px 10px 54px">
+            <!-- List item 1 -->
+            <div style="display:flex;gap:9px;padding:8px 0;border-bottom:1px solid #f2f2f2">
+              <div class="imgbox" style="width:64px;height:64px;border-radius:7px;flex-shrink:0"></div>
+              <div style="flex:1">
+                <div class="tl w90 sm mb4"></div>
+                <div class="tl w70 sm mb4"></div>
+                <div style="display:flex;align-items:center;gap:5px;margin-bottom:5px">
+                  <div class="stars"><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star e"></div></div>
+                  <div style="font-size:7px;color:#aaa">(128)</div>
+                </div>
+                <div style="font-size:10px;font-weight:800;color:#111">$29.99</div>
+              </div>
+              <div style="font-size:14px;color:#ccc">♡</div>
+            </div>
+            <!-- List item 2 -->
+            <div style="display:flex;gap:9px;padding:8px 0;border-bottom:1px solid #f2f2f2">
+              <div class="imgbox" style="width:64px;height:64px;border-radius:7px;flex-shrink:0"></div>
+              <div style="flex:1">
+                <div class="tl w80 sm mb4"></div>
+                <div class="tl w60 sm mb4"></div>
+                <div style="display:flex;align-items:center;gap:5px;margin-bottom:5px">
+                  <div class="stars"><div class="star"></div><div class="star"></div><div class="star"></div><div class="star e"></div><div class="star e"></div></div>
+                  <div style="font-size:7px;color:#aaa">(44)</div>
+                </div>
+                <div style="display:flex;gap:4px;align-items:center">
+                  <div style="font-size:10px;font-weight:800;color:#111">$19.99</div>
+                  <div style="font-size:8px;color:#aaa;text-decoration:line-through">$34.99</div>
+                </div>
+              </div>
+              <div style="font-size:14px;color:#555">♥</div>
+            </div>
+            <!-- List item 3 -->
+            <div style="display:flex;gap:9px;padding:8px 0;border-bottom:1px solid #f2f2f2">
+              <div class="imgbox" style="width:64px;height:64px;border-radius:7px;flex-shrink:0"></div>
+              <div style="flex:1">
+                <div class="tl w90 sm mb4"></div>
+                <div class="tl w70 sm mb4"></div>
+                <div style="display:flex;align-items:center;gap:5px;margin-bottom:5px">
+                  <div class="stars"><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div></div>
+                  <div style="font-size:7px;color:#aaa">(203)</div>
+                </div>
+                <div style="font-size:10px;font-weight:800;color:#111">$44.99</div>
+              </div>
+              <div style="font-size:14px;color:#ccc">♡</div>
+            </div>
+            <!-- List item 4 -->
+            <div style="display:flex;gap:9px;padding:8px 0">
+              <div class="imgbox" style="width:64px;height:64px;border-radius:7px;flex-shrink:0"></div>
+              <div style="flex:1">
+                <div class="tl w80 sm mb4"></div>
+                <div class="tl w55 sm mb4"></div>
+                <div style="display:flex;align-items:center;gap:5px;margin-bottom:5px">
+                  <div class="stars"><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star e"></div></div>
+                  <div style="font-size:7px;color:#aaa">(76)</div>
+                </div>
+                <div style="font-size:10px;font-weight:800;color:#111">$54.99</div>
+              </div>
+              <div style="font-size:14px;color:#ccc">♡</div>
+            </div>
+          </div>
+
+          <div class="tabbar" style="position:absolute;bottom:0;left:0;right:0">
+            <div class="tab"><div class="tab-ic"></div><div class="tab-lbl">Home</div></div>
+            <div class="tab"><div class="tab-ic on"></div><div class="tab-lbl on">Browse</div></div>
+            <div class="tab"><div class="tab-ic"></div><div class="tab-lbl">Cart</div></div>
+            <div class="tab"><div class="tab-ic"></div><div class="tab-lbl">Wishlist</div></div>
+            <div class="tab"><div class="tab-ic"></div><div class="tab-lbl">Profile</div></div>
+          </div>
+        </div>
+        <div class="home-indicator"><div class="hi-bar"></div></div>
+      </div>
+      <div class="slabel">S9 · Search Results</div>
+      <div class="snav"><span>Result item → S10</span></div>
+    </div>
+
+    <div class="farrow">→</div>
+
+    <!-- ── S10: Product Detail ── -->
+    <div class="sw">
+      <div class="phone">
+        <div class="notch"></div>
+        <div class="screen" style="min-height:430px">
+          <div class="sb"><div class="sb-time">9:41</div><div class="sb-icons"><i>●●●</i><i>100%</i></div></div>
+          <div class="appbar">
+            <div class="back">←</div>
+            <div class="appbar-title">Product</div>
+            <div class="icon-row">
+              <div class="icon-btn">↑</div>
+              <div class="icon-btn">♡</div>
+            </div>
+          </div>
+
+          <!-- Image carousel -->
+          <div class="imgbox" style="height:140px;border-radius:0">
+            <span class="imgbox-lbl">Product Image</span>
+          </div>
+          <div class="cdots"><div class="cdot on"></div><div class="cdot"></div><div class="cdot"></div><div class="cdot"></div></div>
+
+          <div style="padding:4px 12px 70px">
+            <!-- Name & price -->
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:4px">
+              <div style="flex:1">
+                <div class="tl xl w80 mb4"></div>
+                <div class="tl w60 sm"></div>
+              </div>
+              <div style="font-size:14px;font-weight:800;color:#111;white-space:nowrap">$49.00</div>
+            </div>
+
+            <!-- Rating -->
+            <div style="display:flex;align-items:center;gap:6px;margin-bottom:8px">
+              <div class="stars"><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star e"></div></div>
+              <div style="font-size:8px;color:#888">4.2 (128 reviews)</div>
+              <div class="badge light">In Stock</div>
+            </div>
+
+            <div class="div"></div>
+
+            <!-- Color -->
+            <div style="font-size:9px;font-weight:700;margin-bottom:6px">Color: <span style="font-weight:400;color:#666">Black</span></div>
+            <div class="swatches mb8">
+              <div class="swatch sel" style="background:#111;border-color:#111"></div>
+              <div class="swatch d"></div>
+              <div class="swatch dd"></div>
+              <div class="swatch"></div>
+            </div>
+
+            <!-- Size -->
+            <div style="font-size:9px;font-weight:700;margin-bottom:6px">Size: <span style="font-weight:400;color:#666">M</span></div>
+            <div style="display:flex;gap:5px;margin-bottom:8px">
+              <div class="chip sm off">XS</div>
+              <div class="chip sm off">S</div>
+              <div class="chip sm">M</div>
+              <div class="chip sm off">L</div>
+              <div class="chip sm off">XL</div>
+            </div>
+
+            <!-- Qty -->
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px">
+              <div style="font-size:9px;font-weight:700">Quantity</div>
+              <div class="qty">
+                <div class="qty-b">−</div>
+                <div class="qty-v">1</div>
+                <div class="qty-b">+</div>
+              </div>
+            </div>
+
+            <!-- Description accordion -->
+            <div style="border:1.5px solid #e8e8e8;border-radius:8px;padding:8px 10px;margin-bottom:8px">
+              <div style="display:flex;justify-content:space-between;align-items:center">
+                <div style="font-size:9px;font-weight:700;color:#111">Description</div>
+                <div style="font-size:10px;color:#aaa">▾</div>
+              </div>
+              <div style="margin-top:6px">
+                <div class="tl w100 sm mb4"></div>
+                <div class="tl w90 sm mb4"></div>
+                <div class="tl w70 sm"></div>
+              </div>
+            </div>
+
+            <!-- Reviews preview -->
+            <div style="font-size:9px;font-weight:700;margin-bottom:6px">Reviews (128)</div>
+            <div style="display:flex;align-items:flex-start;gap:8px;padding:6px;background:#f8f8f8;border-radius:7px">
+              <div class="avatar" style="width:24px;height:24px;border-radius:50%"></div>
+              <div style="flex:1">
+                <div class="tl w60 sm mb4"></div>
+                <div class="stars mb4"><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div></div>
+                <div class="tl w90 sm mb4"></div>
+                <div class="tl w70 sm"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Sticky bottom -->
+          <div class="sticky-bottom" style="display:flex;gap:8px">
+            <div class="btn outline" style="flex:1;font-size:9px">Add to Wishlist</div>
+            <div class="btn" style="flex:2;font-size:9px">Add to Cart</div>
+          </div>
+        </div>
+        <div class="home-indicator"><div class="hi-bar"></div></div>
+      </div>
+      <div class="slabel">S10 · Product Detail</div>
+      <div class="snav"><span>Add to Cart → S12</span><span>♡ → S11</span></div>
+    </div>
+
+    <div class="farrow">→</div>
+
+    <!-- ── S11: Wishlist ── -->
+    <div class="sw">
+      <div class="phone">
+        <div class="notch"></div>
+        <div class="screen" style="min-height:430px">
+          <div class="sb"><div class="sb-time">9:41</div><div class="sb-icons"><i>●●●</i><i>100%</i></div></div>
+          <div class="appbar">
+            <div class="back"></div>
+            <div class="appbar-title">Wishlist (5)</div>
+            <div style="width:32px"></div>
+          </div>
+
+          <div class="pgrid" style="padding:8px 10px 54px">
+            <div class="pcard">
+              <div style="position:relative">
+                <div class="imgbox" style="height:80px"></div>
+                <div style="position:absolute;top:5px;right:5px;font-size:12px;color:#555">♥</div>
+              </div>
+              <div style="padding:5px 6px">
+                <div class="tl w90 sm mb4"></div>
+                <div style="font-size:9px;font-weight:800;margin-bottom:5px">$49.00</div>
+                <div class="btn sm">Add to Cart</div>
+              </div>
+            </div>
+            <div class="pcard">
+              <div style="position:relative">
+                <div class="imgbox" style="height:80px"></div>
+                <div style="position:absolute;top:5px;right:5px;font-size:12px;color:#555">♥</div>
+              </div>
+              <div style="padding:5px 6px">
+                <div class="tl w80 sm mb4"></div>
+                <div style="font-size:9px;font-weight:800;margin-bottom:5px">$29.00</div>
+                <div class="btn sm">Add to Cart</div>
+              </div>
+            </div>
+            <div class="pcard">
+              <div style="position:relative">
+                <div class="imgbox" style="height:80px"></div>
+                <div style="position:absolute;top:5px;right:5px;font-size:12px;color:#555">♥</div>
+              </div>
+              <div style="padding:5px 6px">
+                <div class="tl w90 sm mb4"></div>
+                <div style="font-size:9px;font-weight:800;margin-bottom:5px">$79.00</div>
+                <div class="btn sm">Add to Cart</div>
+              </div>
+            </div>
+            <div class="pcard">
+              <div style="position:relative">
+                <div class="imgbox" style="height:80px"></div>
+                <div style="position:absolute;top:5px;right:5px;font-size:12px;color:#555">♥</div>
+              </div>
+              <div style="padding:5px 6px">
+                <div class="tl w70 sm mb4"></div>
+                <div style="font-size:9px;font-weight:800;margin-bottom:5px">$34.00</div>
+                <div class="btn sm">Add to Cart</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="tabbar" style="position:absolute;bottom:0;left:0;right:0">
+            <div class="tab"><div class="tab-ic"></div><div class="tab-lbl">Home</div></div>
+            <div class="tab"><div class="tab-ic"></div><div class="tab-lbl">Browse</div></div>
+            <div class="tab"><div class="tab-ic"></div><div class="tab-lbl">Cart</div></div>
+            <div class="tab"><div class="tab-ic on"></div><div class="tab-lbl on">Wishlist</div></div>
+            <div class="tab"><div class="tab-ic"></div><div class="tab-lbl">Profile</div></div>
+          </div>
+        </div>
+        <div class="home-indicator"><div class="hi-bar"></div></div>
+      </div>
+      <div class="slabel">S11 · Wishlist</div>
+      <div class="snav"><span>Product → S10</span><span>Add to Cart → S12</span></div>
+    </div>
+
+  </div>
+</div><!-- end flow 2 -->
+
+<!-- ══════════════════════════════════════════
+     FLOW 3 · CHECKOUT FLOW
+══════════════════════════════════════════ -->
+<div class="flow-section">
+  <div class="section-hdr">
+    <div class="section-tag">Flow 3</div>
+    <div class="section-info">
+      <div class="section-name">Checkout Flow</div>
+      <div class="section-note">Cart → Address → Payment → Order Confirmation</div>
+    </div>
+  </div>
+
+  <div class="screens-row">
+
+    <!-- ── S12: Cart ── -->
+    <div class="sw">
+      <div class="phone">
+        <div class="notch"></div>
+        <div class="screen" style="min-height:430px">
+          <div class="sb"><div class="sb-time">9:41</div><div class="sb-icons"><i>●●●</i><i>100%</i></div></div>
+          <div class="appbar">
+            <div class="back">←</div>
+            <div class="appbar-title">Cart (3)</div>
+            <div style="font-size:8.5px;color:#888">Clear all</div>
+          </div>
+
+          <div style="padding:8px 10px 0">
+            <!-- Cart item 1 -->
+            <div style="display:flex;gap:9px;padding:8px 0;border-bottom:1px solid #f2f2f2">
+              <div class="imgbox" style="width:58px;height:58px;border-radius:7px;flex-shrink:0"></div>
+              <div style="flex:1">
+                <div class="tl w90 sm mb4"></div>
+                <div class="tl w55 sm mb6"></div>
+                <div style="display:flex;align-items:center;justify-content:space-between">
+                  <div class="qty"><div class="qty-b">−</div><div class="qty-v">1</div><div class="qty-b">+</div></div>
+                  <div style="font-size:10px;font-weight:800;color:#111">$49.00</div>
+                </div>
+              </div>
+              <div style="font-size:10px;color:#ccc">✕</div>
+            </div>
+            <!-- Cart item 2 -->
+            <div style="display:flex;gap:9px;padding:8px 0;border-bottom:1px solid #f2f2f2">
+              <div class="imgbox" style="width:58px;height:58px;border-radius:7px;flex-shrink:0"></div>
+              <div style="flex:1">
+                <div class="tl w80 sm mb4"></div>
+                <div class="tl w50 sm mb6"></div>
+                <div style="display:flex;align-items:center;justify-content:space-between">
+                  <div class="qty"><div class="qty-b">−</div><div class="qty-v">2</div><div class="qty-b">+</div></div>
+                  <div style="font-size:10px;font-weight:800;color:#111">$58.00</div>
+                </div>
+              </div>
+              <div style="font-size:10px;color:#ccc">✕</div>
+            </div>
+            <!-- Cart item 3 -->
+            <div style="display:flex;gap:9px;padding:8px 0;border-bottom:1px solid #f2f2f2">
+              <div class="imgbox" style="width:58px;height:58px;border-radius:7px;flex-shrink:0"></div>
+              <div style="flex:1">
+                <div class="tl w80 sm mb4"></div>
+                <div class="tl w60 sm mb6"></div>
+                <div style="display:flex;align-items:center;justify-content:space-between">
+                  <div class="qty"><div class="qty-b">−</div><div class="qty-v">1</div><div class="qty-b">+</div></div>
+                  <div style="font-size:10px;font-weight:800;color:#111">$34.00</div>
+                </div>
+              </div>
+              <div style="font-size:10px;color:#ccc">✕</div>
+            </div>
+
+            <!-- Coupon -->
+            <div class="coupon" style="margin:8px 0">
+              <div class="coupon-ic"></div>
+              <div style="font-size:8.5px;color:#555;flex:1">Apply coupon code</div>
+              <div style="font-size:8px;font-weight:700;color:#111">Apply</div>
+            </div>
+
+            <!-- Order summary -->
+            <div style="background:#f8f8f8;border-radius:9px;padding:10px;margin-bottom:10px">
+              <div style="font-size:10px;font-weight:700;margin-bottom:8px">Order Summary</div>
+              <div style="display:flex;justify-content:space-between;margin-bottom:5px">
+                <span style="font-size:8.5px;color:#666">Subtotal (3 items)</span>
+                <span style="font-size:8.5px;font-weight:700">$141.00</span>
+              </div>
+              <div style="display:flex;justify-content:space-between;margin-bottom:5px">
+                <span style="font-size:8.5px;color:#666">Shipping</span>
+                <span style="font-size:8.5px;font-weight:700">$5.00</span>
+              </div>
+              <div style="display:flex;justify-content:space-between;margin-bottom:5px">
+                <span style="font-size:8.5px;color:#666">Discount</span>
+                <span style="font-size:8.5px;font-weight:700;color:#555">−$10.00</span>
+              </div>
+              <div class="div"></div>
+              <div style="display:flex;justify-content:space-between">
+                <span style="font-size:10px;font-weight:800">Total</span>
+                <span style="font-size:10px;font-weight:800">$136.00</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Sticky CTA -->
+          <div class="sticky-bottom">
+            <div class="btn">Proceed to Checkout</div>
+          </div>
+        </div>
+        <div class="home-indicator"><div class="hi-bar"></div></div>
+      </div>
+      <div class="slabel">S12 · Cart</div>
+      <div class="snav"><span>Checkout → S13</span><span>Continue shopping → S7</span></div>
+    </div>
+
+    <div class="farrow">→</div>
+
+    <!-- ── S13: Checkout – Address ── -->
+    <div class="sw">
+      <div class="phone">
+        <div class="notch"></div>
+        <div class="screen" style="min-height:430px">
+          <div class="sb"><div class="sb-time">9:41</div><div class="sb-icons"><i>●●●</i><i>100%</i></div></div>
+          <div class="appbar">
+            <div class="back">← </div>
+            <div class="appbar-title">Checkout</div>
+            <div style="width:32px"></div>
+          </div>
+
+          <!-- Steps -->
+          <div class="steps">
+            <div class="step-n active">1</div>
+            <div class="step-ln"></div>
+            <div class="step-n">2</div>
+            <div class="step-ln"></div>
+            <div class="step-n">3</div>
+          </div>
+          <div style="display:flex;justify-content:space-around;padding:0 16px;margin-bottom:12px">
+            <span style="font-size:7px;font-weight:700;color:#111">Address</span>
+            <span style="font-size:7px;color:#bbb">Payment</span>
+            <span style="font-size:7px;color:#bbb">Review</span>
+          </div>
+
+          <div style="padding:0 12px 70px">
+            <div style="font-size:10px;font-weight:800;margin-bottom:10px">Delivery Address</div>
+
+            <!-- Saved address -->
+            <div style="display:flex;gap:8px;border:1.5px solid #111;border-radius:9px;padding:9px;margin-bottom:8px">
+              <div class="radio on"></div>
+              <div style="flex:1">
+                <div style="font-size:9px;font-weight:700;margin-bottom:3px">Home</div>
+                <div class="tl w100 sm mb4"></div>
+                <div class="tl w80 sm"></div>
+              </div>
+              <div style="font-size:8px;color:#555">Edit</div>
+            </div>
+            <div style="display:flex;gap:8px;border:1.5px solid #e4e4e4;border-radius:9px;padding:9px;margin-bottom:10px">
+              <div class="radio"></div>
+              <div style="flex:1">
+                <div style="font-size:9px;font-weight:700;margin-bottom:3px">Office</div>
+                <div class="tl w100 sm mb4"></div>
+                <div class="tl w70 sm"></div>
+              </div>
+              <div style="font-size:8px;color:#555">Edit</div>
+            </div>
+
+            <!-- Add new -->
+            <div style="display:flex;align-items:center;gap:7px;border:1.5px dashed #ccc;border-radius:9px;padding:9px;margin-bottom:14px">
+              <div style="width:18px;height:18px;border:1.5px solid #ccc;border-radius:5px;display:flex;align-items:center;justify-content:center;font-size:12px;color:#aaa">+</div>
+              <span style="font-size:9px;color:#888">Add new address</span>
+            </div>
+
+            <!-- Delivery option -->
+            <div style="font-size:10px;font-weight:800;margin-bottom:8px">Delivery Option</div>
+            <div style="display:flex;gap:8px;border:1.5px solid #111;border-radius:9px;padding:8px;margin-bottom:6px">
+              <div class="radio on"></div>
+              <div style="flex:1">
+                <div style="font-size:9px;font-weight:700">Standard Delivery</div>
+                <div style="font-size:7.5px;color:#888">3–5 business days · $5.00</div>
+              </div>
+            </div>
+            <div style="display:flex;gap:8px;border:1.5px solid #e4e4e4;border-radius:9px;padding:8px">
+              <div class="radio"></div>
+              <div style="flex:1">
+                <div style="font-size:9px;font-weight:700">Express Delivery</div>
+                <div style="font-size:7.5px;color:#888">1–2 business days · $15.00</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="sticky-bottom">
+            <div class="btn">Continue to Payment</div>
+          </div>
+        </div>
+        <div class="home-indicator"><div class="hi-bar"></div></div>
+      </div>
+      <div class="slabel">S13 · Checkout – Address</div>
+      <div class="snav"><span>Continue → S14 Payment</span></div>
+    </div>
+
+    <div class="farrow">→</div>
+
+    <!-- ── S14: Checkout – Payment ── -->
+    <div class="sw">
+      <div class="phone">
+        <div class="notch"></div>
+        <div class="screen" style="min-height:430px">
+          <div class="sb"><div class="sb-time">9:41</div><div class="sb-icons"><i>●●●</i><i>100%</i></div></div>
+          <div class="appbar">
+            <div class="back">← </div>
+            <div class="appbar-title">Checkout</div>
+            <div style="width:32px"></div>
+          </div>
+
+          <div class="steps">
+            <div class="step-n done">✓</div>
+            <div class="step-ln done"></div>
+            <div class="step-n active">2</div>
+            <div class="step-ln"></div>
+            <div class="step-n">3</div>
+          </div>
+          <div style="display:flex;justify-content:space-around;padding:0 16px;margin-bottom:12px">
+            <span style="font-size:7px;color:#888">Address</span>
+            <span style="font-size:7px;font-weight:700;color:#111">Payment</span>
+            <span style="font-size:7px;color:#bbb">Review</span>
+          </div>
+
+          <div style="padding:0 12px 70px">
+            <div style="font-size:10px;font-weight:800;margin-bottom:10px">Payment Method</div>
+
+            <!-- Credit card selected -->
+            <div style="border:1.5px solid #111;border-radius:9px;padding:9px;margin-bottom:8px">
+              <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px">
+                <div class="radio on"></div>
+                <div style="font-size:9px;font-weight:700">Credit / Debit Card</div>
+              </div>
+              <!-- Card form -->
+              <div class="inp-lbl">Card number</div>
+              <div class="inp"><div class="inp-ic"></div><div class="inp-ph">•••• •••• •••• ••••</div></div>
+              <div style="display:flex;gap:8px">
+                <div style="flex:1">
+                  <div class="inp-lbl">Expiry</div>
+                  <div class="inp"><div class="inp-ph">MM / YY</div></div>
+                </div>
+                <div style="flex:1">
+                  <div class="inp-lbl">CVV</div>
+                  <div class="inp"><div class="inp-ph">•••</div></div>
+                </div>
+              </div>
+              <div class="inp-lbl">Cardholder name</div>
+              <div class="inp"><div class="inp-ph">Full name</div></div>
+              <div style="display:flex;align-items:center;gap:6px">
+                <div class="chk on"></div>
+                <span style="font-size:7.5px;color:#666">Save card for future payments</span>
+              </div>
+            </div>
+
+            <div style="display:flex;gap:8px;border:1.5px solid #e4e4e4;border-radius:9px;padding:9px;margin-bottom:6px">
+              <div class="radio"></div>
+              <div style="font-size:9px;font-weight:700">Cash on Delivery</div>
+            </div>
+            <div style="display:flex;gap:8px;border:1.5px solid #e4e4e4;border-radius:9px;padding:9px;margin-bottom:10px">
+              <div class="radio"></div>
+              <div style="font-size:9px;font-weight:700">Mobile Wallet</div>
+            </div>
+
+            <!-- Order total summary -->
+            <div style="background:#f8f8f8;border-radius:9px;padding:9px">
+              <div style="display:flex;justify-content:space-between;margin-bottom:4px">
+                <span style="font-size:8.5px;color:#666">Items (3)</span>
+                <span style="font-size:8.5px;font-weight:700">$141.00</span>
+              </div>
+              <div style="display:flex;justify-content:space-between;margin-bottom:4px">
+                <span style="font-size:8.5px;color:#666">Shipping</span>
+                <span style="font-size:8.5px;font-weight:700">$5.00</span>
+              </div>
+              <div class="div"></div>
+              <div style="display:flex;justify-content:space-between">
+                <span style="font-size:10px;font-weight:800">Total</span>
+                <span style="font-size:10px;font-weight:800">$146.00</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="sticky-bottom">
+            <div class="btn">Place Order · $146.00</div>
+          </div>
+        </div>
+        <div class="home-indicator"><div class="hi-bar"></div></div>
+      </div>
+      <div class="slabel">S14 · Checkout – Payment</div>
+      <div class="snav"><span>Place Order → S15</span></div>
+    </div>
+
+    <div class="farrow">→</div>
+
+    <!-- ── S15: Order Confirmation ── -->
+    <div class="sw">
+      <div class="phone">
+        <div class="notch"></div>
+        <div class="screen" style="min-height:430px;display:flex;flex-direction:column;align-items:stretch">
+          <div class="sb"><div class="sb-time">9:41</div><div class="sb-icons"><i>●●●</i><i>100%</i></div></div>
+
+          <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px 20px;flex:1">
+            <div class="success-icon" style="margin-bottom:12px">✓</div>
+            <div style="font-size:16px;font-weight:800;color:#111;margin-bottom:4px;text-align:center">Order Placed!</div>
+            <div style="font-size:9px;color:#888;text-align:center;margin-bottom:14px">Thank you for your purchase</div>
+
+            <div style="background:#f8f8f8;border-radius:9px;padding:12px;width:100%;margin-bottom:16px">
+              <div style="display:flex;justify-content:space-between;margin-bottom:6px">
+                <span style="font-size:8.5px;color:#888">Order ID</span>
+                <span style="font-size:8.5px;font-weight:800">#ORD-20240413</span>
+              </div>
+              <div style="display:flex;justify-content:space-between;margin-bottom:6px">
+                <span style="font-size:8.5px;color:#888">Date</span>
+                <span style="font-size:8.5px;font-weight:700">Apr 13, 2026</span>
+              </div>
+              <div style="display:flex;justify-content:space-between;margin-bottom:6px">
+                <span style="font-size:8.5px;color:#888">Items</span>
+                <span style="font-size:8.5px;font-weight:700">3 items</span>
+              </div>
+              <div style="display:flex;justify-content:space-between;margin-bottom:6px">
+                <span style="font-size:8.5px;color:#888">Total paid</span>
+                <span style="font-size:8.5px;font-weight:800">$146.00</span>
+              </div>
+              <div class="div"></div>
+              <div style="display:flex;justify-content:space-between;align-items:center">
+                <span style="font-size:8.5px;color:#888">Estimated delivery</span>
+                <div class="badge light">Apr 16–18</div>
+              </div>
+            </div>
+
+            <!-- Items preview -->
+            <div style="display:flex;gap:6px;margin-bottom:16px">
+              <div class="imgbox" style="width:40px;height:40px;border-radius:7px;flex-shrink:0"></div>
+              <div class="imgbox" style="width:40px;height:40px;border-radius:7px;flex-shrink:0"></div>
+              <div class="imgbox" style="width:40px;height:40px;border-radius:7px;flex-shrink:0"></div>
+            </div>
+
+            <div class="btn mb6" style="width:100%">Track My Order</div>
+            <div class="btn outline" style="width:100%">Continue Shopping</div>
+          </div>
+        </div>
+        <div class="home-indicator"><div class="hi-bar"></div></div>
+      </div>
+      <div class="slabel">S15 · Order Confirmation</div>
+      <div class="snav"><span>Track → S17</span><span>Continue → S7 Home</span></div>
+    </div>
+
+  </div>
+</div><!-- end flow 3 -->
+
+<!-- ══════════════════════════════════════════
+     FLOW 4 · ACCOUNT FLOW
+══════════════════════════════════════════ -->
+<div class="flow-section">
+  <div class="section-hdr">
+    <div class="section-tag">Flow 4</div>
+    <div class="section-info">
+      <div class="section-name">Account Flow</div>
+      <div class="section-note">Profile → My Orders → Order Tracking → Notifications</div>
+    </div>
+  </div>
+
+  <div class="screens-row">
+
+    <!-- ── S16: Profile / Account ── -->
+    <div class="sw">
+      <div class="phone">
+        <div class="notch"></div>
+        <div class="screen" style="min-height:430px">
+          <div class="sb"><div class="sb-time">9:41</div><div class="sb-icons"><i>●●●</i><i>100%</i></div></div>
+          <div class="appbar">
+            <div style="width:32px"></div>
+            <div class="appbar-title">My Account</div>
+            <div class="icon-btn">⚙</div>
+          </div>
+
+          <!-- User card -->
+          <div style="display:flex;align-items:center;gap:12px;padding:14px 12px;border-bottom:1px solid #f0f0f0">
+            <div class="avatar"></div>
+            <div style="flex:1">
+              <div class="tl xl w60 mb4"></div>
+              <div class="tl w70 sm"></div>
+            </div>
+            <div style="font-size:8.5px;color:#555;border:1px solid #ddd;padding:4px 8px;border-radius:6px">Edit</div>
+          </div>
+
+          <!-- Stats row -->
+          <div style="display:flex;border-bottom:1px solid #f0f0f0">
+            <div style="flex:1;padding:10px 0;text-align:center;border-right:1px solid #f0f0f0">
+              <div style="font-size:14px;font-weight:800;color:#111">12</div>
+              <div style="font-size:7.5px;color:#aaa">Orders</div>
+            </div>
+            <div style="flex:1;padding:10px 0;text-align:center;border-right:1px solid #f0f0f0">
+              <div style="font-size:14px;font-weight:800;color:#111">5</div>
+              <div style="font-size:7.5px;color:#aaa">Wishlist</div>
+            </div>
+            <div style="flex:1;padding:10px 0;text-align:center">
+              <div style="font-size:14px;font-weight:800;color:#111">3</div>
+              <div style="font-size:7.5px;color:#aaa">Reviews</div>
+            </div>
+          </div>
+
+          <!-- Menu items -->
+          <div class="lrow">
+            <div class="lrow-l"><div class="lrow-ic"></div><div style="font-size:9.5px;font-weight:600">My Orders</div></div>
+            <div class="lrow-ch">›</div>
+          </div>
+          <div class="lrow">
+            <div class="lrow-l"><div class="lrow-ic"></div><div style="font-size:9.5px;font-weight:600">Wishlist</div></div>
+            <div class="lrow-ch">›</div>
+          </div>
+          <div class="lrow">
+            <div class="lrow-l"><div class="lrow-ic"></div><div style="font-size:9.5px;font-weight:600">Saved Addresses</div></div>
+            <div class="lrow-ch">›</div>
+          </div>
+          <div class="lrow">
+            <div class="lrow-l"><div class="lrow-ic"></div><div style="font-size:9.5px;font-weight:600">Payment Methods</div></div>
+            <div class="lrow-ch">›</div>
+          </div>
+          <div class="lrow">
+            <div class="lrow-l"><div class="lrow-ic"></div><div style="font-size:9.5px;font-weight:600">Notifications</div></div>
+            <div style="display:flex;align-items:center;gap:6px"><div class="badge" style="font-size:6px">3</div><div class="lrow-ch">›</div></div>
+          </div>
+          <div class="lrow">
+            <div class="lrow-l"><div class="lrow-ic"></div><div style="font-size:9.5px;font-weight:600">Help &amp; Support</div></div>
+            <div class="lrow-ch">›</div>
+          </div>
+          <div class="lrow" style="border-bottom:none">
+            <div class="lrow-l"><div class="lrow-ic"></div><div style="font-size:9.5px;color:#888">Log Out</div></div>
+          </div>
+
+          <div class="tabbar" style="position:absolute;bottom:0;left:0;right:0">
+            <div class="tab"><div class="tab-ic"></div><div class="tab-lbl">Home</div></div>
+            <div class="tab"><div class="tab-ic"></div><div class="tab-lbl">Browse</div></div>
+            <div class="tab"><div class="tab-ic"></div><div class="tab-lbl">Cart</div></div>
+            <div class="tab"><div class="tab-ic"></div><div class="tab-lbl">Wishlist</div></div>
+            <div class="tab"><div class="tab-ic on"></div><div class="tab-lbl on">Profile</div></div>
+          </div>
+        </div>
+        <div class="home-indicator"><div class="hi-bar"></div></div>
+      </div>
+      <div class="slabel">S16 · Profile / Account</div>
+      <div class="snav"><span>My Orders → S17</span><span>Notifications → S19</span></div>
+    </div>
+
+    <div class="farrow">→</div>
+
+    <!-- ── S17: My Orders ── -->
+    <div class="sw">
+      <div class="phone">
+        <div class="notch"></div>
+        <div class="screen" style="min-height:430px">
+          <div class="sb"><div class="sb-time">9:41</div><div class="sb-icons"><i>●●●</i><i>100%</i></div></div>
+          <div class="appbar">
+            <div class="back">←</div>
+            <div class="appbar-title">My Orders</div>
+            <div style="width:32px"></div>
+          </div>
+
+          <!-- Tabs -->
+          <div style="display:flex;border-bottom:2px solid #f0f0f0">
+            <div style="flex:1;text-align:center;padding:9px 0;font-size:9px;font-weight:800;border-bottom:2px solid #111;margin-bottom:-2px">Active</div>
+            <div style="flex:1;text-align:center;padding:9px 0;font-size:9px;color:#aaa">Completed</div>
+            <div style="flex:1;text-align:center;padding:9px 0;font-size:9px;color:#aaa">Cancelled</div>
+          </div>
+
+          <!-- Order cards -->
+          <div style="padding:8px 10px;overflow-y:auto">
+            <div class="ocard" style="margin:0 0 8px">
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+                <div style="font-size:9px;font-weight:800">#ORD-20240413</div>
+                <div class="badge">In Transit</div>
+              </div>
+              <div style="display:flex;gap:5px;margin-bottom:8px">
+                <div class="imgbox" style="width:38px;height:38px;border-radius:6px;flex-shrink:0"></div>
+                <div class="imgbox" style="width:38px;height:38px;border-radius:6px;flex-shrink:0"></div>
+                <div class="imgbox" style="width:38px;height:38px;border-radius:6px;flex-shrink:0"></div>
+              </div>
+              <div style="display:flex;justify-content:space-between;align-items:center">
+                <div style="font-size:8px;color:#888">Apr 13 · 3 items</div>
+                <div style="font-size:9px;font-weight:800">$146.00</div>
+              </div>
+              <div class="div"></div>
+              <div style="display:flex;gap:6px">
+                <div class="btn sm outline" style="flex:1">Track</div>
+                <div class="btn sm ghost" style="flex:1">Details</div>
+              </div>
+            </div>
+
+            <div class="ocard" style="margin:0 0 8px">
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+                <div style="font-size:9px;font-weight:800">#ORD-20240408</div>
+                <div class="badge grey">Out for Delivery</div>
+              </div>
+              <div style="display:flex;gap:5px;margin-bottom:8px">
+                <div class="imgbox" style="width:38px;height:38px;border-radius:6px;flex-shrink:0"></div>
+                <div class="imgbox" style="width:38px;height:38px;border-radius:6px;flex-shrink:0"></div>
+              </div>
+              <div style="display:flex;justify-content:space-between;align-items:center">
+                <div style="font-size:8px;color:#888">Apr 8 · 2 items</div>
+                <div style="font-size:9px;font-weight:800">$78.00</div>
+              </div>
+              <div class="div"></div>
+              <div style="display:flex;gap:6px">
+                <div class="btn sm outline" style="flex:1">Track</div>
+                <div class="btn sm ghost" style="flex:1">Details</div>
+              </div>
+            </div>
+
+            <div class="ocard">
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+                <div style="font-size:9px;font-weight:800">#ORD-20240401</div>
+                <div class="badge light">Processing</div>
+              </div>
+              <div style="display:flex;gap:5px;margin-bottom:8px">
+                <div class="imgbox" style="width:38px;height:38px;border-radius:6px;flex-shrink:0"></div>
+              </div>
+              <div style="display:flex;justify-content:space-between;align-items:center">
+                <div style="font-size:8px;color:#888">Apr 1 · 1 item</div>
+                <div style="font-size:9px;font-weight:800">$34.00</div>
+              </div>
+              <div class="div"></div>
+              <div style="display:flex;gap:6px">
+                <div class="btn sm outline" style="flex:1">Track</div>
+                <div class="btn sm ghost" style="flex:1">Details</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="home-indicator"><div class="hi-bar"></div></div>
+      </div>
+      <div class="slabel">S17 · My Orders</div>
+      <div class="snav"><span>Track / Details → S18</span></div>
+    </div>
+
+    <div class="farrow">→</div>
+
+    <!-- ── S18: Order Detail / Tracking ── -->
+    <div class="sw">
+      <div class="phone">
+        <div class="notch"></div>
+        <div class="screen" style="min-height:430px">
+          <div class="sb"><div class="sb-time">9:41</div><div class="sb-icons"><i>●●●</i><i>100%</i></div></div>
+          <div class="appbar">
+            <div class="back">←</div>
+            <div class="appbar-title">#ORD-20240413</div>
+            <div style="width:32px"></div>
+          </div>
+
+          <div style="padding:10px 12px;overflow-y:auto;padding-bottom:20px">
+            <!-- Status badge -->
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+              <div class="badge">In Transit</div>
+              <div style="font-size:8px;color:#888">Est. Apr 16–18</div>
+            </div>
+
+            <!-- Tracking timeline -->
+            <div style="font-size:10px;font-weight:800;margin-bottom:10px">Order Timeline</div>
+            <div class="tl-wrap" style="padding:0 0 0 4px;margin-bottom:12px">
+              <div class="tl-item">
+                <div class="tl-dot"></div>
+                <div class="tl-content">
+                  <div class="tl-t">Out for Delivery</div>
+                  <div class="tl-d">Today, 9:30 AM · With courier</div>
+                </div>
+              </div>
+              <div class="tl-item">
+                <div class="tl-dot"></div>
+                <div class="tl-content">
+                  <div class="tl-t">Shipped</div>
+                  <div class="tl-d">Apr 14, 2:15 PM · Tracking #XY8823</div>
+                </div>
+              </div>
+              <div class="tl-item">
+                <div class="tl-dot"></div>
+                <div class="tl-content">
+                  <div class="tl-t">Order Confirmed</div>
+                  <div class="tl-d">Apr 13, 11:40 AM</div>
+                </div>
+              </div>
+              <div class="tl-item">
+                <div class="tl-dot"></div>
+                <div class="tl-content">
+                  <div class="tl-t">Order Placed</div>
+                  <div class="tl-d">Apr 13, 10:05 AM</div>
+                </div>
+              </div>
+              <div class="tl-item" style="padding-bottom:0">
+                <div class="tl-dot off"></div>
+                <div class="tl-content">
+                  <div class="tl-t off">Delivered</div>
+                  <div class="tl-d">Expected Apr 16–18</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="div"></div>
+
+            <!-- Delivery address -->
+            <div style="margin-bottom:10px">
+              <div style="font-size:10px;font-weight:800;margin-bottom:6px">Delivery Address</div>
+              <div style="background:#f8f8f8;border-radius:8px;padding:9px">
+                <div class="tl w80 sm mb4"></div>
+                <div class="tl w100 sm mb4"></div>
+                <div class="tl w60 sm"></div>
+              </div>
+            </div>
+
+            <!-- Items -->
+            <div style="font-size:10px;font-weight:800;margin-bottom:8px">Items (3)</div>
+            <div style="display:flex;gap:9px;padding:8px 0;border-bottom:1px solid #f2f2f2;margin-bottom:6px">
+              <div class="imgbox" style="width:50px;height:50px;border-radius:7px;flex-shrink:0"></div>
+              <div style="flex:1">
+                <div class="tl w90 sm mb4"></div>
+                <div class="tl w60 sm mb4"></div>
+                <div style="font-size:9px;color:#888">Qty: 1 · Size M</div>
+              </div>
+              <div style="font-size:9px;font-weight:800">$49.00</div>
+            </div>
+            <div style="display:flex;gap:9px;padding:8px 0;margin-bottom:6px">
+              <div class="imgbox" style="width:50px;height:50px;border-radius:7px;flex-shrink:0"></div>
+              <div style="flex:1">
+                <div class="tl w80 sm mb4"></div>
+                <div class="tl w55 sm mb4"></div>
+                <div style="font-size:9px;color:#888">Qty: 2 · Size L</div>
+              </div>
+              <div style="font-size:9px;font-weight:800">$58.00</div>
+            </div>
+
+            <!-- Order total -->
+            <div style="background:#f8f8f8;border-radius:9px;padding:9px;">
+              <div style="display:flex;justify-content:space-between;margin-bottom:4px">
+                <span style="font-size:8.5px;color:#666">Subtotal</span>
+                <span style="font-size:8.5px;font-weight:700">$141.00</span>
+              </div>
+              <div style="display:flex;justify-content:space-between;margin-bottom:4px">
+                <span style="font-size:8.5px;color:#666">Shipping</span>
+                <span style="font-size:8.5px;font-weight:700">$5.00</span>
+              </div>
+              <div class="div"></div>
+              <div style="display:flex;justify-content:space-between">
+                <span style="font-size:10px;font-weight:800">Total paid</span>
+                <span style="font-size:10px;font-weight:800">$146.00</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="home-indicator"><div class="hi-bar"></div></div>
+      </div>
+      <div class="slabel">S18 · Order Detail / Tracking</div>
+      <div class="snav"><span>← Back → S17</span></div>
+    </div>
+
+    <div class="farrow">→</div>
+
+    <!-- ── S19: Notifications ── -->
+    <div class="sw">
+      <div class="phone">
+        <div class="notch"></div>
+        <div class="screen" style="min-height:430px">
+          <div class="sb"><div class="sb-time">9:41</div><div class="sb-icons"><i>●●●</i><i>100%</i></div></div>
+          <div class="appbar">
+            <div class="back">←</div>
+            <div class="appbar-title">Notifications</div>
+            <div style="font-size:8px;color:#888">Mark all read</div>
+          </div>
+
+          <!-- Filter tabs -->
+          <div style="display:flex;border-bottom:1.5px solid #f0f0f0">
+            <div style="flex:1;text-align:center;padding:8px 0;font-size:8.5px;font-weight:800;border-bottom:2px solid #111;margin-bottom:-2px">All</div>
+            <div style="flex:1;text-align:center;padding:8px 0;font-size:8.5px;color:#aaa">Orders</div>
+            <div style="flex:1;text-align:center;padding:8px 0;font-size:8.5px;color:#aaa">Promos</div>
+          </div>
+
+          <!-- Notification items -->
+          <div style="padding-bottom:20px">
+            <!-- Unread -->
+            <div style="background:#f8f8f8">
+              <div class="notif-item">
+                <div class="notif-ic notif-unread"></div>
+                <div style="flex:1">
+                  <div class="tl w80 sm mb4"></div>
+                  <div class="tl w100 sm mb4"></div>
+                  <div style="font-size:7.5px;color:#bbb">2 min ago</div>
+                </div>
+                <div style="width:8px;height:8px;border-radius:50%;background:#555;flex-shrink:0;margin-top:4px"></div>
+              </div>
+              <div class="notif-item">
+                <div class="notif-ic notif-unread"></div>
+                <div style="flex:1">
+                  <div class="tl w70 sm mb4"></div>
+                  <div class="tl w90 sm mb4"></div>
+                  <div style="font-size:7.5px;color:#bbb">1 hour ago</div>
+                </div>
+                <div style="width:8px;height:8px;border-radius:50%;background:#555;flex-shrink:0;margin-top:4px"></div>
+              </div>
+              <div class="notif-item">
+                <div class="notif-ic notif-unread"></div>
+                <div style="flex:1">
+                  <div class="tl w80 sm mb4"></div>
+                  <div class="tl w90 sm mb4"></div>
+                  <div style="font-size:7.5px;color:#bbb">3 hours ago</div>
+                </div>
+                <div style="width:8px;height:8px;border-radius:50%;background:#555;flex-shrink:0;margin-top:4px"></div>
+              </div>
+            </div>
+
+            <!-- Read -->
+            <div style="padding:6px 12px;font-size:7.5px;color:#bbb;font-weight:700;letter-spacing:0.8px;text-transform:uppercase">Earlier</div>
+            <div class="notif-item">
+              <div class="notif-ic"></div>
+              <div style="flex:1">
+                <div class="tl w70 sm mb4"></div>
+                <div class="tl w90 sm mb4"></div>
+                <div style="font-size:7.5px;color:#ccc">Yesterday</div>
+              </div>
+            </div>
+            <div class="notif-item">
+              <div class="notif-ic"></div>
+              <div style="flex:1">
+                <div class="tl w60 sm mb4"></div>
+                <div class="tl w80 sm mb4"></div>
+                <div style="font-size:7.5px;color:#ccc">2 days ago</div>
+              </div>
+            </div>
+            <div class="notif-item">
+              <div class="notif-ic"></div>
+              <div style="flex:1">
+                <div class="tl w80 sm mb4"></div>
+                <div class="tl w70 sm mb4"></div>
+                <div style="font-size:7.5px;color:#ccc">Apr 10</div>
+              </div>
+            </div>
+            <div class="notif-item">
+              <div class="notif-ic"></div>
+              <div style="flex:1">
+                <div class="tl w60 sm mb4"></div>
+                <div class="tl w90 sm mb4"></div>
+                <div style="font-size:7.5px;color:#ccc">Apr 8</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="home-indicator"><div class="hi-bar"></div></div>
+      </div>
+      <div class="slabel">S19 · Notifications</div>
+      <div class="snav"><span>Order notif → S18</span></div>
+    </div>
+
+  </div>
+</div><!-- end flow 4 -->
+
+<!-- ══════════════════════════════════════════
+     SCREEN MAP
+══════════════════════════════════════════ -->
+<div style="background:white;border:1.5px solid #d0d0d0;border-radius:12px;padding:24px 28px;margin-top:16px">
+  <div style="font-size:13px;font-weight:800;margin-bottom:16px">Complete User Flow Map</div>
+  <div style="font-size:11px;color:#444;line-height:2;font-family:'Courier New',monospace">
+    [App Launch] → S1 Splash → S2–S4 Onboarding<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;S5 Login ←——→ S6 Register<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;S7 Home (bottom nav hub)<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↙&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↘<br>
+    S8 Category&nbsp;&nbsp;&nbsp;S9 Search&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;S11 Wishlist&nbsp;&nbsp;&nbsp;S16 Profile<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└——→ S10 Product Detail ←——┘<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;S12 Cart<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;S13 Checkout – Address<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;S14 Checkout – Payment<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;S15 Order Confirmation<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↙&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↘<br>
+    S7 Home&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;S17 My Orders<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;S18 Order Tracking<br>
+    <br>
+    S16 Profile → S17 My Orders / S11 Wishlist / S19 Notifications
+  </div>
+</div>
+
+<!-- Screen count summary -->
+<div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:24px">
+  <div style="background:#111;color:white;border-radius:8px;padding:12px 18px;font-size:11px;font-weight:700">19 Total Screens</div>
+  <div style="background:white;border:1.5px solid #ddd;border-radius:8px;padding:12px 18px;font-size:11px;font-weight:700">Flow 1 · Auth · 6 screens</div>
+  <div style="background:white;border:1.5px solid #ddd;border-radius:8px;padding:12px 18px;font-size:11px;font-weight:700">Flow 2 · Shopping · 5 screens</div>
+  <div style="background:white;border:1.5px solid #ddd;border-radius:8px;padding:12px 18px;font-size:11px;font-weight:700">Flow 3 · Checkout · 4 screens</div>
+  <div style="background:white;border:1.5px solid #ddd;border-radius:8px;padding:12px 18px;font-size:11px;font-weight:700">Flow 4 · Account · 4 screens</div>
+</div>
+
+</body>
+</html>

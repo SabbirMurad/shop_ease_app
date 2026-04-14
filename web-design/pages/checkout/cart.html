@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shopping Cart — ShopEase</title>
+<link rel="stylesheet" href="../../css/common.css">
+<link rel="stylesheet" href="../../css/checkout.css">
+</head>
+<body>
+<nav class="navbar"><div class="navbar-inner"><a href="../shopping/home.html" class="nav-logo"><div class="nav-logo-mark"><svg width="18" height="18" viewBox="0 0 20 20" fill="none"><path d="M2 2h3l3.5 12H16l2.5-8H6" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="9" cy="18" r="1.5" fill="white"/><circle cx="15" cy="18" r="1.5" fill="white"/></svg></div><span class="nav-logo-text">ShopEase</span></a><div class="nav-search"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="7" cy="7" r="5" stroke="#999" stroke-width="1.4"/><path d="M11 11 14.5 14.5" stroke="#999" stroke-width="1.4" stroke-linecap="round"/></svg><input type="text" placeholder="Search products, brands…"><div class="nav-search-btn"><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><circle cx="7" cy="7" r="5" stroke="white" stroke-width="1.4"/><path d="M11 11 14.5 14.5" stroke="white" stroke-width="1.4" stroke-linecap="round"/></svg></div></div><div class="nav-actions"><div class="nav-icon-btn"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 17S2 12 2 6.5a4 4 0 0 1 8-1 4 4 0 0 1 8 1C18 12 10 17 10 17Z" stroke="#444" stroke-width="1.5" stroke-linejoin="round"/></svg><div class="nav-badge">5</div></div><div class="nav-icon-btn" style="background:var(--blue-lt);"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M2 2h2.5l3 10h9l2-7H5.5" stroke="var(--blue)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="9" cy="17" r="1.5" fill="var(--blue)"/><circle cx="15" cy="17" r="1.5" fill="var(--blue)"/></svg><div class="nav-badge">3</div></div><div class="nav-user-btn"><div class="nav-avatar"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="5.5" r="3" stroke="var(--blue)" stroke-width="1.4"/><path d="M2 14c0-3.3 2.7-6 6-6s6 2.7 6 6" stroke="var(--blue)" stroke-width="1.4" stroke-linecap="round"/></svg></div><span class="nav-user-name">John D.</span></div></div></div></nav>
+
+<main>
+  <div class="container">
+    <div class="breadcrumb">
+      <a href="../shopping/home.html" class="breadcrumb-item">Home</a>
+      <span class="breadcrumb-sep">/</span>
+      <span class="breadcrumb-item current">Shopping Cart</span>
+    </div>
+
+    <div class="cart-layout">
+      <!-- LEFT: Cart items -->
+      <div>
+        <h1 class="cart-panel-title">
+          Shopping Cart
+          <span class="cart-panel-count">3 items</span>
+        </h1>
+
+        <!-- Cart table header -->
+        <div class="cart-table-head">
+          <span>Product</span>
+          <span style="text-align:center;">Unit Price</span>
+          <span style="text-align:center;">Subtotal</span>
+          <span></span>
+        </div>
+
+        <!-- Item 1 -->
+        <div class="cart-item">
+          <div class="cart-item-info">
+            <div class="cart-item-img" style="background:linear-gradient(140deg,#D8E4ED,#EDE5D8);"></div>
+            <div>
+              <div class="cart-item-name">Essential White Tee — Premium Cotton Blend</div>
+              <div class="cart-item-meta">Brand: TrendCo &nbsp;·&nbsp; Size: M &nbsp;·&nbsp; Color: White</div>
+              <div class="cart-item-actions">
+                <div class="qty-ctrl" style="height:32px;">
+                  <div class="qty-btn" style="width:30px;height:30px;font-size:16px;">−</div>
+                  <div class="qty-val" style="width:36px;height:30px;font-size:13px;">2</div>
+                  <div class="qty-btn" style="width:30px;height:30px;font-size:16px;">+</div>
+                </div>
+                <div class="cart-item-action">
+                  <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M1 3h11M4 3V2a1 1 0 0 1 1-1h3a1 1 0 0 1 1 1v1m1 0v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V3" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+                  Save for later
+                </div>
+                <div class="cart-item-action remove">
+                  <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M2 2l9 9M11 2 2 11" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+                  Remove
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="cart-item-price-col"><span class="cart-unit-price">$29.99</span></div>
+          <div class="cart-total-price">$59.98</div>
+          <div class="cart-remove-col">
+            <button class="cart-remove-btn">
+              <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M2 2l9 9M11 2 2 11" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Item 2 -->
+        <div class="cart-item">
+          <div class="cart-item-info">
+            <div class="cart-item-img" style="background:linear-gradient(140deg,#E8D5C0,#F5E6D3);"></div>
+            <div>
+              <div class="cart-item-name">Relaxed Linen Blazer — Sand Beige</div>
+              <div class="cart-item-meta">Brand: MoodCo &nbsp;·&nbsp; Size: L &nbsp;·&nbsp; Color: Sand</div>
+              <div class="cart-item-actions">
+                <div class="qty-ctrl" style="height:32px;">
+                  <div class="qty-btn" style="width:30px;height:30px;font-size:16px;">−</div>
+                  <div class="qty-val" style="width:36px;height:30px;font-size:13px;">1</div>
+                  <div class="qty-btn" style="width:30px;height:30px;font-size:16px;">+</div>
+                </div>
+                <div class="cart-item-action">
+                  <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M1 3h11M4 3V2a1 1 0 0 1 1-1h3a1 1 0 0 1 1 1v1m1 0v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V3" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+                  Save for later
+                </div>
+                <div class="cart-item-action remove">
+                  <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M2 2l9 9M11 2 2 11" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+                  Remove
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="cart-item-price-col"><span class="cart-unit-price">$89.00</span></div>
+          <div class="cart-total-price">$89.00</div>
+          <div class="cart-remove-col"><button class="cart-remove-btn"><svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M2 2l9 9M11 2 2 11" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg></button></div>
+        </div>
+
+        <!-- Item 3 -->
+        <div class="cart-item">
+          <div class="cart-item-info">
+            <div class="cart-item-img" style="background:linear-gradient(140deg,#F0EDE5,#E5EDF0);"></div>
+            <div>
+              <div class="cart-item-name">Slim Fit Chino Trousers — Navy</div>
+              <div class="cart-item-meta">Brand: ClassicLine &nbsp;·&nbsp; Size: 32×32 &nbsp;·&nbsp; Color: Navy</div>
+              <div class="cart-item-actions">
+                <div class="qty-ctrl" style="height:32px;">
+                  <div class="qty-btn" style="width:30px;height:30px;font-size:16px;">−</div>
+                  <div class="qty-val" style="width:36px;height:30px;font-size:13px;">1</div>
+                  <div class="qty-btn" style="width:30px;height:30px;font-size:16px;">+</div>
+                </div>
+                <div class="cart-item-action">
+                  <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M1 3h11M4 3V2a1 1 0 0 1 1-1h3a1 1 0 0 1 1 1v1m1 0v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V3" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+                  Save for later
+                </div>
+                <div class="cart-item-action remove">
+                  <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M2 2l9 9M11 2 2 11" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+                  Remove
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="cart-item-price-col"><span class="cart-unit-price">$64.99</span></div>
+          <div class="cart-total-price">$64.99</div>
+          <div class="cart-remove-col"><button class="cart-remove-btn"><svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M2 2l9 9M11 2 2 11" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg></button></div>
+        </div>
+
+        <!-- Coupon row -->
+        <div class="coupon-row">
+          <div class="coupon-input-wrap">
+            <div class="coupon-icon">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="1" y="4" width="14" height="8" rx="2" stroke="#C8C8C8" stroke-width="1.3"/><circle cx="5" cy="8" r="1.5" stroke="#C8C8C8" stroke-width="1.2"/><path d="M8 6h5M8 10h5" stroke="#C8C8C8" stroke-width="1.2" stroke-linecap="round"/></svg>
+            </div>
+            <input class="coupon-input" placeholder="Enter coupon code" value="SAVE10">
+            <div class="coupon-applied">
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5.5" fill="var(--success)" opacity=".15"/><path d="M3.5 6l2 2 3-3.5" stroke="var(--success)" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Applied: –$21.40
+            </div>
+          </div>
+          <button class="btn btn-ghost" style="height:48px;">Change</button>
+        </div>
+      </div>
+
+      <!-- RIGHT: Order summary -->
+      <div>
+        <div class="order-summary sticky-top-no-sub">
+          <div class="order-summary-head">Order Summary</div>
+          <div class="order-summary-body">
+            <div class="summary-row"><span>Subtotal (4 items)</span><strong>$213.97</strong></div>
+            <div class="summary-row saving"><span>Coupon (SAVE10)</span><strong>–$21.40</strong></div>
+            <div class="summary-row"><span>Shipping</span><strong style="color:var(--success);">Free</strong></div>
+            <div class="summary-row"><span>Tax (8%)</span><strong>$15.40</strong></div>
+            <div class="summary-row total"><span>Total</span><strong style="color:var(--blue);">$207.97</strong></div>
+          </div>
+          <div class="order-summary-foot">
+            <a href="address.html">
+              <button class="checkout-btn">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="1" y="3" width="14" height="10" rx="2" stroke="white" stroke-width="1.3"/><path d="M1 6h14" stroke="white" stroke-width="1.3"/><circle cx="4.5" cy="10" r="1.2" fill="white"/></svg>
+                Proceed to Checkout
+              </button>
+            </a>
+            <div class="secure-note">
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><rect x="2" y="5" width="8" height="6" rx="1.5" stroke="#999" stroke-width="1.2"/><path d="M4 5V4a2 2 0 0 1 4 0v1" stroke="#999" stroke-width="1.2" stroke-linecap="round"/></svg>
+              Secure 256-bit SSL encrypted checkout
+            </div>
+
+            <div class="divider" style="margin:14px 0;"></div>
+
+            <div style="font-size:12px;font-weight:700;color:var(--subtle);margin-bottom:10px;letter-spacing:0.5px;">WE ACCEPT</div>
+            <div style="display:flex;gap:8px;flex-wrap:wrap;">
+              <div class="pay-icon" style="background:var(--input-bg);color:var(--mid);height:28px;font-size:10px;">VISA</div>
+              <div class="pay-icon" style="background:var(--input-bg);color:var(--mid);height:28px;font-size:10px;">MC</div>
+              <div class="pay-icon" style="background:var(--input-bg);color:var(--mid);height:28px;font-size:10px;">AMEX</div>
+              <div class="pay-icon" style="background:var(--input-bg);color:var(--mid);height:28px;font-size:10px;">PayPal</div>
+              <div class="pay-icon" style="background:var(--input-bg);color:var(--mid);height:28px;font-size:10px;">Apple Pay</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="footer"><div class="footer-bottom" style="border-top:none;padding-top:28px;"><span>© 2026 ShopEase Inc. · Privacy Policy · Terms of Service</span><div class="footer-pay-icons"><div class="pay-icon">VISA</div><div class="pay-icon">MC</div><div class="pay-icon">AMEX</div></div></div></footer>
+<script>
+(function() {
+  var icons = document.querySelectorAll('.nav-icon-btn');
+  if (icons[0]) icons[0].onclick = function() { location.href = '../shopping/wishlist.html'; };
+  // icons[1] = cart (active, no nav needed)
+  var userBtn = document.querySelector('.nav-user-btn');
+  if (userBtn) userBtn.onclick = function() { location.href = '../account/profile.html'; };
+  var searchBtn = document.querySelector('.nav-search-btn');
+  if (searchBtn) searchBtn.onclick = function() { location.href = '../shopping/search.html'; };
+  // Cart item images/names → product
+  document.querySelectorAll('.cart-item-img').forEach(function(img) {
+    img.style.cursor = 'pointer';
+    img.onclick = function() { location.href = '../shopping/product.html'; };
+  });
+  document.querySelectorAll('.cart-item-name').forEach(function(n) {
+    n.style.cursor = 'pointer';
+    n.onclick = function() { location.href = '../shopping/product.html'; };
+  });
+  // Save for later → wishlist
+  document.querySelectorAll('.cart-item-action:not(.remove)').forEach(function(btn) {
+    btn.style.cursor = 'pointer';
+    btn.onclick = function() { location.href = '../shopping/wishlist.html'; };
+  });
+  // Remove buttons (no nav, just visual)
+})();
+</script>
+</body>
+</html>

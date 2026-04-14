@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//c/Users/Sabbir/.claude/skills/ui-ux-pro-max/**)",
+      "Bash(python scripts/search.py \"fashion ecommerce modern premium minimal\" --design-system -p \"ShopEase\" -f markdown)",
+      "Bash(python3 scripts/search.py \"fashion ecommerce modern premium minimal\" --design-system -p \"ShopEase\" -f markdown)",
+      "Bash(ls scripts/)",
+      "Bash(python --version)",
+      "Bash(python3 scripts/search.py \"fashion ecommerce premium minimal elegant\" --design-system -p \"ShopEase\")",
+      "Bash(python scripts/search.py \"fashion ecommerce premium minimal elegant\" --design-system -p \"ShopEase\")",
+      "Bash(python:*)"
+    ]
+  }
+}
