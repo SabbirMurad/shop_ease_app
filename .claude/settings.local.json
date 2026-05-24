@@ -8,7 +8,9 @@
       "Bash(python --version)",
       "Bash(python3 scripts/search.py \"fashion ecommerce premium minimal elegant\" --design-system -p \"ShopEase\")",
       "Bash(python scripts/search.py \"fashion ecommerce premium minimal elegant\" --design-system -p \"ShopEase\")",
-      "Bash(python:*)"
+      "Bash(python:*)",
+      "Bash(Remove-Item *)",
+      "PowerShell(Remove-Item *)"
     ]
   }
 }
